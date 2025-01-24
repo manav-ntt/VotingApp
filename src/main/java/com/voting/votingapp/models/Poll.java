@@ -4,13 +4,13 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Entity
 @Data
-@NoArgsConstructor
 public class Poll {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +18,6 @@ public class Poll {
     private String question;
 
     @ElementCollection
-    private List<String> options = new ArrayList<>();
-
-    @ElementCollection
-    private List<Long> votes = new ArrayList<>();
+    private List<OptionVote> options = new ArrayList<>();
 
 }
